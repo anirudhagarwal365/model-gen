@@ -1,0 +1,13 @@
+{
+    "classType": "CLASS",
+    "fields": {
+        "title": {
+            "fieldType": "STRING",
+            "required": false
+        },
+        "isEnabled": {
+            "fieldType": "BOOLEAN",
+            "required": false
+        }
+    }
+}

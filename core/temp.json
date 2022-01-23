@@ -1,0 +1,43 @@
+{
+    "classType": "CLASS",
+    "extendsType1": {
+        "type": ""
+    },
+    "fields": {
+        "hello": {
+            "fieldType": "OBJECT",
+            "type": "a.b.c.Hello",
+            "required": true
+        },
+        "products": {
+            "fieldType": "LIST",
+            "required": false,
+            "genericTypes": [
+                {
+                    "fieldType": "OBJECT",
+                    "type": "a.b.c.Hello"
+                }
+            ]
+        },
+        "prices": {
+            "fieldType": "MAP",
+            "genericTypes": [
+                {
+                    "fieldType": "STRING"
+                },
+                {
+                    "fieldType": "OBJECT",
+                    "type": "a.b.c.Hello"
+                }
+            ]
+        },
+        "title": {
+            "fieldType": "STRING",
+            "required": false
+        },
+        "isEnabled": {
+            "fieldType": "BOOLEAN",
+            "required": false
+        }
+    }
+}

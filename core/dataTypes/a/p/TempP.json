@@ -1,0 +1,14 @@
+{
+    "classType": "CLASS",
+    "fields": {
+        "title": {
+            "fieldType": "OBJECT",
+            "type": "a.q.TempQ",
+            "required": false
+        },
+        "isEnabled": {
+            "fieldType": "BOOLEAN",
+            "required": false
+        }
+    }
+}
