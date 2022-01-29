@@ -8,3 +8,7 @@ virtualenv venv --python=python2.7
 
 echo "installing python dependencies"
 pip install -r requirements.txt
+
+echo "setting up python path"
+export PYTHONPATH=.
+source ./venv/bin/activate
