@@ -1,0 +1,8 @@
+{
+    "classType": "ENUM",
+    "type": "NAME",
+    "names": [
+        "LIGHT",
+        "DARK"
+    ]
+}

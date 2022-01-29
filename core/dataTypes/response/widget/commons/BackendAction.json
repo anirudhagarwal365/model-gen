@@ -1,0 +1,20 @@
+{
+    "classType": "CLASS",
+    "genericTypes": [
+        {
+            "name": "T"
+        }
+    ],
+    "fields": {
+        "type": {
+            "fieldType": "OBJECT",
+            "type": "response.actions.BackendActions",
+            "required": true
+        },
+        "objects": {
+            "fieldType": "GENERIC",
+            "type": "T",
+            "required": true
+        }
+    }
+}

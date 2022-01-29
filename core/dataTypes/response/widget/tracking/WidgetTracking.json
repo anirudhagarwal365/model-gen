@@ -1,0 +1,15 @@
+{
+    "classType": "CLASS",
+    "fields": {
+        "widget_meta": {
+            "fieldType": "OBJECT",
+            "type": "response.widget.tracking.WidgetTracking",
+            "required": false
+        },
+        "page_meta": {
+            "fieldType": "OBJECT",
+            "type": "response.page.tracking.PageMeta",
+            "required": false
+        }
+    }
+}

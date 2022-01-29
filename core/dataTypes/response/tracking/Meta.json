@@ -1,0 +1,43 @@
+{
+    "classType": "CLASS",
+    "fields": {
+        "name": {
+            "fieldType": "STRING",
+            "required": true
+        },
+        "id": {
+            "fieldType": "STRING",
+            "required": false
+        },
+        "title": {
+            "fieldType": "STRING",
+            "required": true
+        },
+        "revision_id": {
+            "fieldType": "STRING",
+            "required": false
+        },
+        "variation_id": {
+            "fieldType": "STRING",
+            "required": true
+        },
+        "layout_id": {
+            "fieldType": "STRING",
+            "required": false
+        },
+        "custom_data": {
+            "fieldType": "MAP",
+            "requried": false,
+            "genericTypes": [
+                {
+                    "fieldType": "STRING",
+                    "requried": true
+                },
+                {
+                    "fieldType": "OBJECT",
+                    "requried": true
+                }
+            ]
+        }
+    }
+}

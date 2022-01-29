@@ -1,14 +1,18 @@
 {
     "classType": "CLASS",
     "fields": {
-        "title": {
+        "titleP": {
             "fieldType": "OBJECT",
             "type": "a.q.TempQ",
             "required": false
         },
-        "isEnabled": {
+        "isEnabledP": {
             "fieldType": "BOOLEAN",
             "required": false
+        },
+        "layout_config": {
+            "fieldType": "OBJECT",
+            "type": "response.page.commons.PageLayoutConfig"
         }
     }
 }

@@ -1,0 +1,5 @@
+{
+    "classType": "ENUM",
+    "type": "NAME",
+    "names": ["TOP", "BOTTOM", "BOTH"]
+}

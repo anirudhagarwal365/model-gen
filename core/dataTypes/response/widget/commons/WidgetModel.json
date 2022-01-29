@@ -1,0 +1,74 @@
+{
+    "classType": "CLASS",
+    "genericTypes": [
+        {
+            "name": "D"
+        },
+        {
+            "name": "O"
+        }
+    ],
+    "fields": {
+        "type": {
+            "fieldType": "INTEGER",
+            "required": true
+        },
+        "grid_span": {
+            "fieldType": "INTEGER",
+            "required": false
+        },
+        "data": {
+            "fieldType": "GENERIC",
+            "type": "D",
+            "required": false
+        },
+        "objects": {
+            "fieldType": "GENERIC",
+            "type": "O",
+            "required": false
+        },
+        "action": {
+            "fieldType": "OBJECT",
+            "type": "response.widget.commons.DeeplinkAction",
+            "required": false
+        },
+        "actions": {
+            "fieldType": "LIST",
+            "genericTypes": [
+                {
+                    "fieldType": "OBJECT",
+                    "type": "response.widget.commons.BackendAction",
+                    "genericTypes": [
+                        {
+                            "fieldType": "OBJECT"
+                        }
+                    ]
+                }
+            ],
+            "type": "response.widget.commons.DeeplinkAction",
+            "required": false
+        },
+        "header_config": {
+            "fieldType": "OBJECT",
+            "type": "response.widget.commons.WidgetHeaderConfig"
+        },
+        "layout_config": {
+            "fieldType": "OBJECT",
+            "type": "response.widget.commons.WidgetLayoutConfig"
+        },
+        "containerWidth": {
+            "fieldType": "INTEGER",
+            "required": false
+        },
+        "tracking": {
+            "fieldType": "OBJECT",
+            "type": "response.widget.tracking.WidgetTracking",
+            "required": false
+        },
+        "widget_meta": {
+            "fieldType": "OBJECT",
+            "type": "response.widget.tracking.WidgetMeta",
+            "required": false
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "classType": "CLASS",
+    "extendsType": {
+        "fieldType": "OBJECT",
+        "type": "response.tracking.Meta",
+        "required": false
+    },
+    "fields": {
+        "parent_page_meta": {
+            "fieldType": "STRING",
+            "required": true
+        }
+    }
+}

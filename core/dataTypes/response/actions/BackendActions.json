@@ -1,0 +1,15 @@
+{
+    "classType": "ENUM",
+    "type": "NAME",
+    "names": [
+        "DEEPLINK",
+        "MODAL",
+        "MODIFY_CART",
+        "REINIT_CART",
+        "REFRESH_CART",
+        "SYNC_USER_SESSION",
+        "UPDATE_FORM_DATA_AND_SYNC",
+        "OPEN_APP_NOTIFICATION_SETTINGS",
+        "SHOW_IN_APP_REVIEW_POPUP"
+    ]
+}

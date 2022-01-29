@@ -1,0 +1,62 @@
+{
+    "classType": "CLASS",
+    "fields": {
+        "show_header": {
+            "fieldType": "BOOLEAN",
+            "required": false
+        },
+        "title": {
+            "fieldType": "STRING",
+            "required": false
+        },
+        "subtitle": {
+            "fieldType": "STRING",
+            "required": false
+        },
+        "title_image_url": {
+            "fieldType": "STRING",
+            "required": false
+        },
+        "show_button": {
+            "fieldType": "BOOLEAN",
+            "required": false
+        },
+        "button_text": {
+            "fieldType": "STRING",
+            "required": false
+        },
+        "button_deeplink": {
+            "fieldType": "STRING",
+            "required": false
+        },
+        "background_image_url": {
+            "fieldType": "STRING",
+            "required": false
+        },
+        "padding_top": {
+            "fieldType": "INTEGER",
+            "required": false
+        },
+        "padding_left": {
+            "fieldType": "INTEGER",
+            "required": false
+        },
+        "padding_right": {
+            "fieldType": "INTEGER",
+            "required": false
+        },
+        "padding_bottom": {
+            "fieldType": "INTEGER",
+            "required": false
+        },
+        "bg_color": {
+            "fieldType": "STRING",
+            "required": false
+        },
+        "theme": {
+            "fieldType": "OBJECT",
+            "type": "response.widget.commons.constants.Theme",
+            "required": false
+        }
+    }
+}

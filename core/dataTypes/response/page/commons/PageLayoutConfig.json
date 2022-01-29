@@ -1,12 +1,8 @@
 {
     "classType": "CLASS",
     "fields": {
-        "title": {
+        "bg_color": {
             "fieldType": "STRING",
-            "required": false
-        },
-        "isEnabled": {
-            "fieldType": "BOOLEAN",
             "required": false
         }
     }

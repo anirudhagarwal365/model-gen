@@ -1,0 +1,34 @@
+{
+    "classType": "CLASS",
+    "extendsType": {
+        "fieldType": "OBJECT",
+        "type": "response.tracking.Meta",
+        "required": false
+    },
+    "fields": {
+        "product_list_id": {
+            "fieldType": "STRING",
+            "required": true
+        },
+        "subcategory_id": {
+            "fieldType": "STRING",
+            "required": false
+        },
+        "position": {
+            "fieldType": "INTEGER",
+            "required": true
+        },
+        "lastVisible": {
+            "fieldType": "INTEGER",
+            "required": false
+        },
+        "impressionCount": {
+            "fieldType": "INTEGER",
+            "required": true
+        },
+        "minimum_time_between_impressions": {
+            "fieldType": "INTEGER",
+            "required": false
+        }
+    }
+}

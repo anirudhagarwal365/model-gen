@@ -1,0 +1,27 @@
+{
+    "classType": "CLASS",
+    "fields": {
+        "default_uri": {
+            "fieldType": "STRING",
+            "required": true
+        },
+        "tnc_uri": {
+            "fieldType": "STRING",
+            "required": false
+        },
+        "data": {
+            "fieldType": "MAP",
+            "requried": false,
+            "genericTypes": [
+                {
+                    "fieldType": "STRING",
+                    "requried": true
+                },
+                {
+                    "fieldType": "OBJECT",
+                    "requried": true
+                }
+            ]
+        }
+    }
+}

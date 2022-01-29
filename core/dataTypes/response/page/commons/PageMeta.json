@@ -1,0 +1,47 @@
+{
+    "classType": "CLASS",
+    "fields": {
+        "name": {
+            "fieldType": "STRING",
+            "required": false
+        },
+        "id": {
+            "fieldType": "STRING",
+            "required": false
+        },
+        "title": {
+            "fieldType": "STRING",
+            "requried": false
+        },
+        "revision_id": {
+            "fieldType": "STRING",
+            "requried": false
+        },
+        "variation_id": {
+            "fieldType": "STRING",
+            "requried": false
+        },
+        "layout_id": {
+            "fieldType": "STRING",
+            "requried": false
+        },
+        "parent_page_meta": {
+            "fieldType": "STRING",
+            "requried": false
+        },
+        "custom_data": {
+            "fieldType": "MAP",
+            "requried": false,
+            "genericTypes": [
+                {
+                    "fieldType": "STRING",
+                    "requried": true
+                },
+                {
+                    "fieldType": "OBJECT",
+                    "requried": true
+                }
+            ]
+        }
+    }
+}

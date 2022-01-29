@@ -1,0 +1,74 @@
+{
+    "classType": "CLASS",
+    "fields": {
+        "aspect_ratio": {
+            "fieldType": "INTEGER",
+            "required": false
+        },
+        "width": {
+            "fieldType": "INTEGER",
+            "required": false
+        },
+        "height": {
+            "fieldType": "INTEGER",
+            "required": false
+        },
+        "max_width": {
+            "fieldType": "INTEGER",
+            "required": false
+        },
+        "margin_top": {
+            "fieldType": "INTEGER",
+            "required": false
+        },
+        "margin_right": {
+            "fieldType": "INTEGER",
+            "required": false
+        },
+        "margin_bottom": {
+            "fieldType": "INTEGER",
+            "required": false
+        },
+        "margin_left": {
+            "fieldType": "INTEGER",
+            "required": false
+        },
+        "background_image_url": {
+            "fieldType": "STRING",
+            "required": false
+        },
+        "padding_top": {
+            "fieldType": "INTEGER",
+            "required": false
+        },
+        "padding_left": {
+            "fieldType": "INTEGER",
+            "required": false
+        },
+        "padding_right": {
+            "fieldType": "INTEGER",
+            "required": false
+        },
+        "padding_bottom": {
+            "fieldType": "INTEGER",
+            "required": false
+        },
+        "bg_color": {
+            "fieldType": "STRING",
+            "required": false
+        },
+        "border_radius": {
+            "fieldType": "INTEGER",
+            "required": false
+        },
+        "alignment": {
+            "fieldType": "STRING",
+            "required": false
+        },
+        "sticky": {
+            "fieldType": "OBJECT",
+            "type": "response.widget.commons.constants.StickyPosition",
+            "required": false
+        }
+    }
+}
