@@ -2,6 +2,7 @@ import { SUPPORTED_LANGUAGES } from '../constants';
 import { fieldTypeConvertorForPy, requiredTypeConvertorForPy } from '../py-gen/fieldLevel';
 import { fieldTypeConvertorForTs, requiredTypeConvertorForTs } from '../ts-gen/fieldLevel';
 import { Field } from '../types';
+import { fieldTypeConvertorForJava, requiredTypeConvertorForJava } from '../java-gen/fieldLevel';
 
 export const requiredTypeConvertor = (required: boolean, language: SUPPORTED_LANGUAGES) => {
     switch (language) {
@@ -9,6 +10,8 @@ export const requiredTypeConvertor = (required: boolean, language: SUPPORTED_LAN
             return requiredTypeConvertorForTs(required);
         case SUPPORTED_LANGUAGES.PYTHON:
             return requiredTypeConvertorForPy(required);
+        case SUPPORTED_LANGUAGES.JAVA:
+            return requiredTypeConvertorForJava(required);
         default:
             throw 'Unsupported language - ' + language;
     }
@@ -55,6 +58,8 @@ export const fieldTypeConvertor = (field: Field, language: SUPPORTED_LANGUAGES):
             return fieldTypeConvertorForTs(field);
         case SUPPORTED_LANGUAGES.PYTHON:
             return fieldTypeConvertorForPy(field);
+        case SUPPORTED_LANGUAGES.JAVA:
+            return fieldTypeConvertorForJava(field);
         default:
             throw 'Unsupported language - ' + language;
     }

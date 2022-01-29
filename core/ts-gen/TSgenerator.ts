@@ -1,7 +1,8 @@
 import { SUPPORTED_LANGUAGES } from '../constants';
 import { generateExtendsTypeForClass, generateGenericTypesForClass, getImportStatements } from '../language-commons/classLevel';
 import { requiredTypeConvertor, getCurrentImports, fieldTypeConvertor } from '../language-commons/fieldLevel';
-import { ClassFileFormat, Field } from '../types';
+import { ClassFileFormat, Field, EnumFileFormat } from '../types';
+import { enumNameConvertor } from './fieldLevel';
 
 const getTypescriptVariableLine = (name: string, field: Field) => {
     return (
@@ -13,9 +14,9 @@ const getTypescriptVariableLine = (name: string, field: Field) => {
 };
 
 export const generateInterfaceForTs = (classFileFormat: ClassFileFormat, className: string) => {
-    const { extendsType, genericType, fields } = classFileFormat;
+    const { extendsType, genericTypes, fields } = classFileFormat;
     let interfaceBody = `export interface ${className}${generateGenericTypesForClass(
-        genericType,
+        genericTypes,
         SUPPORTED_LANGUAGES.TYPESCRIPT
     )} ${generateExtendsTypeForClass(extendsType, SUPPORTED_LANGUAGES.TYPESCRIPT)} {`;
 
@@ -26,4 +27,11 @@ export const generateInterfaceForTs = (classFileFormat: ClassFileFormat, classNa
 
     interfaceBody = interfaceBody.concat('\n}');
     return getImportStatements(getCurrentImports(), SUPPORTED_LANGUAGES.TYPESCRIPT).concat(interfaceBody);
+};
+
+export const generateEnumForTs = (enumFileFormat: EnumFileFormat, enumName: string) => {
+    const { names, type } = enumFileFormat;
+    return `export enum ${enumName} {
+        ${enumNameConvertor(names, type)}
+    }`;
 };

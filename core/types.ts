@@ -1,22 +1,23 @@
-import { CLASS_TYPE } from "./constants";
+import { CLASS_TYPE, ENUM_TYPE } from './constants';
 
 export interface GenericsType {
-    name: string,
-    bounds?: Field
+    name: string;
+    bounds?: Field;
 }
 
 export interface BaseFileFormat {
-    classType: CLASS_TYPE,
+    classType: CLASS_TYPE;
 }
 
 export interface ClassFileFormat extends BaseFileFormat {
-    fields: Record<string, Field>,
-    extendsType?: Field,
-    genericType?: GenericsType
+    fields: Record<string, Field>;
+    extendsType?: Field;
+    genericTypes?: GenericsType[];
 }
 
 export interface EnumFileFormat extends BaseFileFormat {
-    value: string[];
+    names: string[];
+    type?: ENUM_TYPE;
 }
 
 export interface Field {

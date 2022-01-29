@@ -1,6 +1,6 @@
 export enum CLASS_TYPE {
     CLASS = 'CLASS',
-    ENUM = 'ENUM'
+    ENUM = 'ENUM',
 }
 
 export enum FIELD_TYPES {
@@ -12,9 +12,16 @@ export enum FIELD_TYPES {
     LONG = 'LONG',
     LIST = 'LIST',
     MAP = 'MAP',
+    GENERIC = 'GENERIC'
 }
 
 export enum SUPPORTED_LANGUAGES {
     TYPESCRIPT = 'typescript',
     PYTHON = 'python',
+    JAVA = 'java',
+}
+
+export enum ENUM_TYPE {
+    NUMBER = 'NUMBER',
+    NAME = 'NAME',
 }

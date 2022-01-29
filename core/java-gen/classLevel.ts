@@ -1,9 +1,8 @@
 import { Field, GenericsType } from '../types';
 import { SUPPORTED_LANGUAGES } from '../constants';
 import { fieldTypeConvertor } from '../language-commons/fieldLevel';
-import { replaceAll } from '../utils/utils';
 
-export const generateGenericTypesForTsClass = (genericTypes: GenericsType[]) => {
+export const generateGenericTypesForJavaClass = (genericTypes: GenericsType[]) => {
     let genericTypeStr = '<';
     genericTypes.forEach((genericType) => {
         genericTypeStr = genericTypeStr.concat(genericType.name);
@@ -16,18 +15,17 @@ export const generateGenericTypesForTsClass = (genericTypes: GenericsType[]) => 
     return genericTypeStr + '>';
 };
 
-export const generateExtendsTypeForTsClass = (extendsType?: Field) => {
+export const generateExtendsTypeForJavaClass = (extendsType?: Field) => {
     if (extendsType) {
-        return `extends ${fieldTypeConvertor(extendsType, SUPPORTED_LANGUAGES.TYPESCRIPT)}`;
+        return `extends ${fieldTypeConvertor(extendsType, SUPPORTED_LANGUAGES.JAVA)}`;
     }
     return '';
 };
 
-export const getImportStatementsForTs = (imports: Set<string>) => {
-    let importStatementsStr = '';
+export const getImportStatementsForJava = (imports: Set<string>) => {
+    let importStatementsStr = 'import javax.annotation.Nonnull;\nimport javax.annotation.Nullable;\n';
     imports.forEach((importVal) => {
-        const tsImportVal = replaceAll(importVal, '.', '/');
-        importStatementsStr = importStatementsStr.concat(`import {${tsImportVal.split('/').pop()}} from '${tsImportVal}'; \n`);
+        importStatementsStr = importStatementsStr.concat(`import ${importVal}; \n`);
     });
     return importStatementsStr;
 };

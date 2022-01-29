@@ -1,6 +1,5 @@
 import { FIELD_TYPES } from '../constants';
-import { Field } from '../types';
-import { replaceAll } from '../utils';
+import { Field, ENUM_TYPE } from '../types';
 import { getCurrentImports } from '../language-commons/fieldLevel';
 
 export const requiredTypeConvertorForTs = (required: boolean) => {
@@ -8,10 +7,10 @@ export const requiredTypeConvertorForTs = (required: boolean) => {
         return '?';
     }
     return '';
-}
+};
 
 export const convertTypeToPackageForTs = (type: string) => {
-    getCurrentImports().add(`@root/${replaceAll(type, '.', '/')}`);
+    getCurrentImports().add(`@root/${type}`);
     return type.split('.').pop() ?? '';
 };
 
@@ -30,7 +29,7 @@ export const convertTypeAndGenericTypesForTs = (type: string, genericTypes: Fiel
 };
 
 export const fieldTypeConvertorForTs = (field: Field): string => {
-    const { fieldType } = field;
+    const { fieldType, type } = field;
     switch (fieldType) {
         case FIELD_TYPES.STRING:
             return 'string';
@@ -58,7 +57,25 @@ export const fieldTypeConvertorForTs = (field: Field): string => {
             }
             return 'any';
         }
+        case FIELD_TYPES.GENERIC: {
+            if (type) {
+                return type;
+            }
+            return 'any';
+        }
         default:
             throw 'Unsupported Field Type' + field.fieldType;
     }
+};
+
+export const enumNameConvertor = (names: string[], type?: ENUM_TYPE): string => {
+    let enumFields = '';
+    names.forEach((name) => {
+        if (ENUM_TYPE.NAME === type) {
+            enumFields = enumFields.concat(`${name} = '${name}',\n`);
+        } else {
+            enumFields = enumFields.concat(`${name},\n`);
+        }
+    });
+    return enumFields;
 };
