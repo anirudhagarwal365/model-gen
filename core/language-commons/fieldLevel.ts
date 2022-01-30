@@ -1,7 +1,7 @@
 import { SUPPORTED_LANGUAGES } from '../constants';
-import { fieldTypeConvertorForPy, requiredTypeConvertorForPy } from '../py-gen/fieldLevel';
-import { fieldTypeConvertorForTs, requiredTypeConvertorForTs } from '../ts-gen/fieldLevel';
-import { Field } from '../types';
+import { enumNameConvertorForPy, fieldTypeConvertorForPy, requiredTypeConvertorForPy } from '../py-gen/fieldLevel';
+import { fieldTypeConvertorForTs, requiredTypeConvertorForTs, enumNameConvertorForTs } from '../ts-gen/fieldLevel';
+import { EnumFileFormat, Field } from '../types';
 import { fieldTypeConvertorForJava, requiredTypeConvertorForJava } from '../java-gen/fieldLevel';
 
 export const requiredTypeConvertor = (required: boolean, language: SUPPORTED_LANGUAGES) => {
@@ -60,6 +60,20 @@ export const fieldTypeConvertor = (field: Field, language: SUPPORTED_LANGUAGES):
             return fieldTypeConvertorForPy(field);
         case SUPPORTED_LANGUAGES.JAVA:
             return fieldTypeConvertorForJava(field);
+        default:
+            throw 'Unsupported language - ' + language;
+    }
+};
+
+export const enumNameConvertor = (enumFileFormat: EnumFileFormat, language: SUPPORTED_LANGUAGES): string => {
+    const { names, type } = enumFileFormat;
+    switch (language) {
+        case SUPPORTED_LANGUAGES.TYPESCRIPT:
+            return enumNameConvertorForTs(names, type);
+        case SUPPORTED_LANGUAGES.PYTHON:
+            return enumNameConvertorForPy(names, type);
+        case SUPPORTED_LANGUAGES.JAVA:
+            return '';
         default:
             throw 'Unsupported language - ' + language;
     }

@@ -3,7 +3,7 @@
     "fields": {
         "widget_meta": {
             "fieldType": "OBJECT",
-            "type": "response.widget.tracking.WidgetTracking",
+            "type": "response.widget.tracking.WidgetMeta",
             "required": false
         },
         "page_meta": {

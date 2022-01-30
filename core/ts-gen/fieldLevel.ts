@@ -1,5 +1,5 @@
-import { FIELD_TYPES } from '../constants';
-import { Field, ENUM_TYPE } from '../types';
+import { ENUM_TYPE, FIELD_TYPES } from '../constants';
+import { Field } from '../types';
 import { getCurrentImports } from '../language-commons/fieldLevel';
 
 export const requiredTypeConvertorForTs = (required: boolean) => {
@@ -68,7 +68,7 @@ export const fieldTypeConvertorForTs = (field: Field): string => {
     }
 };
 
-export const enumNameConvertor = (names: string[], type?: ENUM_TYPE): string => {
+export const enumNameConvertorForTs = (names: string[], type?: ENUM_TYPE): string => {
     let enumFields = '';
     names.forEach((name) => {
         if (ENUM_TYPE.NAME === type) {

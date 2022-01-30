@@ -1,7 +1,7 @@
 import { SUPPORTED_LANGUAGES } from '../constants';
 import { writeToFile } from '../fileSystem';
 import { generateInterfaceForJava } from '../java-gen/JavaGenerator';
-import { generateInterfaceForPy } from '../py-gen/PYgenerator';
+import { generateEnumForPy, generateInterfaceForPy } from '../py-gen/PYgenerator';
 import { generateEnumForTs, generateInterfaceForTs } from '../ts-gen/TSgenerator';
 import { ClassFileFormat, EnumFileFormat } from '../types';
 import { clearImports } from './fieldLevel';
@@ -57,6 +57,9 @@ export const generateEnum = (enumFileFormat: EnumFileFormat, className: string, 
                 break;
             }
             case SUPPORTED_LANGUAGES.PYTHON: {
+                const fileContent = generateEnumForPy(enumFileFormat, className);
+                const relativeFilePath = filePath.substring(filePath.lastIndexOf(identifier) + identifier.length + 1).replace('json', 'py');
+                writeToFile(relativeFilePath, fileContent, supportedLanguage);
                 break;
             }
             case SUPPORTED_LANGUAGES.JAVA: {

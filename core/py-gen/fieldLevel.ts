@@ -1,6 +1,6 @@
 import { getCurrentImports } from '../language-commons/fieldLevel';
 import { Field } from '../types';
-import { FIELD_TYPES } from '../constants';
+import { ENUM_TYPE, FIELD_TYPES } from '../constants';
 
 export const requiredTypeConvertorForPy = (required: boolean) => {
     if (required) {
@@ -29,10 +29,10 @@ export const fieldTypeConvertorForPy = (field: Field): string => {
         case FIELD_TYPES.BOOLEAN:
             return 'fields.Boolean()';
         case FIELD_TYPES.INTEGER:
-            case FIELD_TYPES.LONG:
-            return 'fields.Int()'
-            case FIELD_TYPES.FLOAT:
-            return 'fields.Float()'
+        case FIELD_TYPES.LONG:
+            return 'fields.Int()';
+        case FIELD_TYPES.FLOAT:
+            return 'fields.Float()';
         case FIELD_TYPES.LIST: {
             if (field.genericTypes) {
                 return `fields.List(${fieldTypeConvertorForPy(field.genericTypes[0])})`;
@@ -56,4 +56,16 @@ export const fieldTypeConvertorForPy = (field: Field): string => {
         default:
             throw 'Unsupported Field Type' + field.fieldType;
     }
+};
+
+export const enumNameConvertorForPy = (names: string[], type?: ENUM_TYPE): string => {
+    let enumFields = '';
+    names.forEach((name, index) => {
+        if (ENUM_TYPE.NAME === type) {
+            enumFields = enumFields.concat(`\t${name} = "${name}"\n`);
+        } else {
+            enumFields = enumFields.concat(`\t${name}\n`);
+        }
+    });
+    return enumFields;
 };

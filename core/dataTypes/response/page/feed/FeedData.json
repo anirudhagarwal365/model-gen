@@ -3,7 +3,6 @@
     "fields": {
         "titleP": {
             "fieldType": "OBJECT",
-            "type": "a.q.TempQ",
             "required": false
         },
         "isEnabledP": {

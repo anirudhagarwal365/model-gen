@@ -1,7 +1,7 @@
-import { SUPPORTED_LANGUAGES } from '../constants';
+import { ENUM_TYPE, SUPPORTED_LANGUAGES } from '../constants';
 import { generateExtendsTypeForClass, getImportStatements } from '../language-commons/classLevel';
-import { fieldTypeConvertor, getCurrentImports, requiredTypeConvertor } from '../language-commons/fieldLevel';
-import { ClassFileFormat, Field, GenericsType } from '../types';
+import { enumNameConvertor, fieldTypeConvertor, getCurrentImports, requiredTypeConvertor } from '../language-commons/fieldLevel';
+import { ClassFileFormat, EnumFileFormat, Field, GenericsType } from '../types';
 
 const appendRequired = (fieldStr: string, requiredParam: string) => {
     if (fieldStr.indexOf('(') < 0) {
@@ -39,3 +39,10 @@ export const generateInterfaceForPy = (classFileFormat: ClassFileFormat, classNa
 
     return getImportStatements(getCurrentImports(), SUPPORTED_LANGUAGES.PYTHON).concat(interfaceBody);
 };
+
+export const generateEnumForPy = (enumFileFormat: EnumFileFormat, enumName: string) => {
+    const { type } = enumFileFormat;
+    return `from enum import Enum
+    class ${enumName}(${type === ENUM_TYPE.NAME ? 'str,':''}Enum):
+    ${enumNameConvertor(enumFileFormat, SUPPORTED_LANGUAGES.PYTHON)}`
+}
