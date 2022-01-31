@@ -1,8 +1,7 @@
-import { SUPPORTED_LANGUAGES } from './constants';
+import { SUPPORTED_LANGUAGES, BASE_FOLDER } from './constants';
 const fs = require('fs');
+const fse = require('fs-extra');
 const path = require('path');
-
-const baseFolder = 'generated/';
 
 const prettier = require('prettier');
 
@@ -22,6 +21,10 @@ const deleteFolderRecursive = function (directoryPath: string) {
     }
 };
 
+export const generateOutputFolderFromTemplates = function () {
+    fse.copySync(`./templates/`, `./${BASE_FOLDER}/`);
+}
+
 function ensureDirectoryExistence(filePath: string) {
     var dirname = path.dirname(filePath);
     if (fs.existsSync(dirname)) {
@@ -29,6 +32,9 @@ function ensureDirectoryExistence(filePath: string) {
     }
     ensureDirectoryExistence(dirname);
     fs.mkdirSync(dirname);
+    if (dirname.indexOf(`${SUPPORTED_LANGUAGES.PYTHON}/root`) !== -1) {
+        fs.writeFileSync(`${dirname}/__init__.py`, '')
+    }
 }
 
 export const writeToFile = (relativeFilePath: string, data: string, language: SUPPORTED_LANGUAGES) => {

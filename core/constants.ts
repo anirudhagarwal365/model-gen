@@ -25,3 +25,5 @@ export enum ENUM_TYPE {
     NUMBER = 'NUMBER',
     NAME = 'NAME',
 }
+
+export const BASE_FOLDER = 'generated'
