@@ -1,4 +1,5 @@
-import { SUPPORTED_LANGUAGES } from '../constants';
+import { exec } from 'child_process';
+import { SUPPORTED_LANGUAGES, BASE_FOLDER } from '../constants';
 import { writeToFile } from '../fileSystem';
 import { generateInterfaceForJava } from '../java-gen/JavaGenerator';
 import { generateEnumForPy, generateInterfaceForPy } from '../py-gen/PYgenerator';
@@ -70,3 +71,28 @@ export const generateEnum = (enumFileFormat: EnumFileFormat, className: string, 
         }
     });
 };
+
+export const formatGeneratedFiles = function() {
+    Object.keys(SUPPORTED_LANGUAGES).forEach((language) => {
+        // @ts-ignore
+        const supportedLanguage: SUPPORTED_LANGUAGES = SUPPORTED_LANGUAGES[language];
+        switch (supportedLanguage) {
+            case SUPPORTED_LANGUAGES.TYPESCRIPT: {
+                break
+            }
+            case SUPPORTED_LANGUAGES.PYTHON: {
+                exec(`autopep8 --in-place --aggressive --aggressive -r ${BASE_FOLDER}/${SUPPORTED_LANGUAGES.PYTHON}`, function(err: any, stdout: any) {
+                    if (err) {
+                        console.error(err)
+                    }
+                    console.log(stdout);
+                });                
+            }
+            case SUPPORTED_LANGUAGES.JAVA: {
+                break;
+            }
+            default:
+            // throw 'Unsupported language - ' + language;
+        }
+    });
+}
